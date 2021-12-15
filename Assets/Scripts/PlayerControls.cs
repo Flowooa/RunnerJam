@@ -5,10 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
+    [SerializeField] private AudioClip audioSaute = null;
+    [SerializeField] Transform respawn;
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject cube;
+
     Rigidbody rb;
+    AudioSource audioSource;
     public float Speed = 5f, Force = 300f;
-    bool PlayerJump = false;
     float AxisX, AxisY;
+    bool PlayerJump = false;
     bool StopDblleJump = false;
 
     void Start()    
@@ -53,5 +59,14 @@ public class PlayerControls : MonoBehaviour
         {
             StopDblleJump = true;
         }
+    }
+
+    public void OnSUICIDE()
+    {
+        cube = (GameObject)Instantiate(cube, Player.transform.position, Quaternion.identity);
+
+
+
+        Player.transform.position = respawn.position;
     }
 }
