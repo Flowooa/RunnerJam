@@ -49,6 +49,14 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5cab9704-0a49-48a6-825c-d00b7de7edba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,17 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""action"": ""SUICIDE"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da8bead5-101a-4077-947e-f73a6a79aead"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -168,6 +187,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         m_Player_Horizontal = m_Player.FindAction("Horizontal", throwIfNotFound: true);
         m_Player_Vertical = m_Player.FindAction("Vertical", throwIfNotFound: true);
         m_Player_SUICIDE = m_Player.FindAction("SUICIDE", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -221,6 +241,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Horizontal;
     private readonly InputAction m_Player_Vertical;
     private readonly InputAction m_Player_SUICIDE;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -229,6 +250,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public InputAction @Horizontal => m_Wrapper.m_Player_Horizontal;
         public InputAction @Vertical => m_Wrapper.m_Player_Vertical;
         public InputAction @SUICIDE => m_Wrapper.m_Player_SUICIDE;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,6 +272,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @SUICIDE.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSUICIDE;
                 @SUICIDE.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSUICIDE;
                 @SUICIDE.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSUICIDE;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -266,6 +291,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @SUICIDE.started += instance.OnSUICIDE;
                 @SUICIDE.performed += instance.OnSUICIDE;
                 @SUICIDE.canceled += instance.OnSUICIDE;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -285,5 +313,6 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         void OnHorizontal(InputAction.CallbackContext context);
         void OnVertical(InputAction.CallbackContext context);
         void OnSUICIDE(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
