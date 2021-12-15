@@ -9,11 +9,13 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] Transform respawn;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject cube;
+    [SerializeField] private GameObject PauseMenuUI;
 
     Rigidbody rb;
     AudioSource audioSource;
     public float Speed = 5f, Force = 300f;
     float AxisX, AxisY;
+    private static bool gamePaused = false;
     bool PlayerJump = false;
     bool StopDblleJump = false;
 
@@ -61,12 +63,35 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    public void OnPause()
+    {
+        if (gamePaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Paused();
+        }
+    }
+
     public void OnSUICIDE()
     {
         cube = (GameObject)Instantiate(cube, Player.transform.position, Quaternion.identity);
-
-
-
         Player.transform.position = respawn.position;
+    }
+
+    private void Paused()
+    {
+        PauseMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        gamePaused = true;
+    }
+
+    private void Resume()
+    {
+        PauseMenuUI.SetActive(false);
+        Time.timeScale = 1;
+        gamePaused = false;
     }
 }
