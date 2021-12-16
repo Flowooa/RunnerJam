@@ -8,7 +8,7 @@ public class RestartLevel : MonoBehaviour
 
     public void LoadCurrentScene()
     {
-        SceneManager.LoadSceneAsync("testimon");
+        SceneManager.LoadSceneAsync("Runer3D");
         Time.timeScale = 1;
     }
 
