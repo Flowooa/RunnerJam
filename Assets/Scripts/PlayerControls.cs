@@ -37,6 +37,7 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * Force);
             StopDblleJump = false;
         }
+
     }
 
     public void OnHorizontal(InputValue val)
@@ -59,12 +60,12 @@ public class PlayerControls : MonoBehaviour
         {
             StopDblleJump = true;
         }
+
     }
 
     public void OnSUICIDE()
     {
         cube = (GameObject)Instantiate(cube, Player.transform.position, Quaternion.identity);
-
 
 
         Player.transform.position = respawn.position;
