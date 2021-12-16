@@ -39,6 +39,7 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * Force);
             StopDblleJump = false;
         }
+
     }
 
     public void OnHorizontal(InputValue val)
@@ -61,6 +62,7 @@ public class PlayerControls : MonoBehaviour
         {
             StopDblleJump = true;
         }
+
     }
 
     public void OnPause()
