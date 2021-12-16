@@ -9,5 +9,11 @@ public class RestartLevel : MonoBehaviour
     public void LoadCurrentScene()
     {
         SceneManager.LoadSceneAsync("testimon");
+        Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
