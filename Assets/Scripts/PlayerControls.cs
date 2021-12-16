@@ -26,10 +26,8 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
-        
         transform.Translate(Vector3.right * Speed * AxisX * Time.deltaTime);
         transform.Translate(Vector3.forward * Speed * AxisY * Time.deltaTime);
-
     }
     private void FixedUpdate()
     {
@@ -39,7 +37,6 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * Force);
             StopDblleJump = false;
         }
-
     }
 
     public void OnHorizontal(InputValue val)
@@ -62,7 +59,6 @@ public class PlayerControls : MonoBehaviour
         {
             StopDblleJump = true;
         }
-
     }
 
     public void OnPause()
@@ -75,12 +71,6 @@ public class PlayerControls : MonoBehaviour
         {
             Paused();
         }
-    }
-
-    public void OnSUICIDE()
-    {
-        cube = (GameObject)Instantiate(cube, Player.transform.position, Quaternion.identity);
-        Player.transform.position = respawn.position;
     }
 
     private void Paused()
