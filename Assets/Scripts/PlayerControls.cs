@@ -61,7 +61,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void OnPause()
+    public void OnPausing()
     {
         if (gamePaused)
         {
