@@ -16,26 +16,27 @@ public class PlayerControls : MonoBehaviour
     float AxisX, AxisY;
     bool PlayerJump = false;
     bool StopDblleJump = false;
+    public float maxSpeed = 20f;
 
     void Start()    
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
-        
-        transform.Translate(Vector3.right * Speed * AxisX * Time.deltaTime);
-        transform.Translate(Vector3.forward * Speed * AxisY * Time.deltaTime);
-
-    }
     private void FixedUpdate()
     {
+
         if ((PlayerJump) && StopDblleJump)
         {
             PlayerJump = false;
             rb.AddForce(Vector3.up * Force);
             StopDblleJump = false;
+        }
+        if (Speed < maxSpeed)
+        {
+            transform.Translate(Vector3.right * Speed * AxisX * Time.deltaTime);
+            transform.Translate(Vector3.forward * Speed * AxisY * Time.deltaTime);
+
         }
 
     }
@@ -63,11 +64,5 @@ public class PlayerControls : MonoBehaviour
 
     }
 
-    public void OnSUICIDE()
-    {
-        cube = (GameObject)Instantiate(cube, Player.transform.position, Quaternion.identity);
-
-
-        Player.transform.position = respawn.position;
-    }
+ 
 }
