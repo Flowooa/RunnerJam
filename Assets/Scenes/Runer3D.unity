@@ -1548,10 +1548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e631d9bb049e32741ae302e62714b38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSaute: {fileID: 0}
+  audioSaute: {fileID: 8300000, guid: c7649c7c7ef698d48abccff1c3dc26c3, type: 3}
   respawn: {fileID: 261832140}
   Player: {fileID: 1684446521}
   cube: {fileID: 6126513990672916708, guid: c41dca02475952b4a893f3f0a76b6a62, type: 3}
+  PauseMenuUI: {fileID: 344381940432754654}
   Speed: 5
   Force: 250
 --- !u!82 &1684446529
@@ -1565,7 +1566,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1574,7 +1575,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 14.704145
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1610,7 +1611,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
