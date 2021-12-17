@@ -38,9 +38,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Pause",
+                    "name": "Pausing",
                     "type": "Button",
-                    "id": "5cab9704-0a49-48a6-825c-d00b7de7edba",
+                    "id": "ae5e556e-4479-40d8-87c7-341c7ab49c9b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -137,12 +137,12 @@
                 },
                 {
                     "name": "",
-                    "id": "da8bead5-101a-4077-947e-f73a6a79aead",
+                    "id": "5e062573-eb2c-4044-842b-46f9f5323dbf",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Pausing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

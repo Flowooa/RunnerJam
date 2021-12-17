@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/testimon.unity
-    guid: a9e488f208bb1b74a9a391efcebea22c
+    path: Assets/Scenes/menu.unity
+    guid: ea3571a3f45e7bd4b9d3edbd3591adda
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 2c4cb9dd532cdab4ca2fb9b6782355b8
+  - enabled: 1
+    path: Assets/Scenes/Runer3D.unity
+    guid: 3e99a2e54af759b49acd17a342b54879
   m_configObjects: {}
